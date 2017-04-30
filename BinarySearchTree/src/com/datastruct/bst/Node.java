@@ -1,6 +1,6 @@
 package com.datastruct.bst;
 
-public class Node<T> {
+public class Node<T extends Comparable<T>> implements Comparable<Node<T>> {
 
 	private T data;
 
@@ -43,5 +43,8 @@ public class Node<T> {
 		this.rightChild = rightChild;
 	}
 
-	
+	@Override
+	public int compareTo(Node<T> inNode) {
+		return data.compareTo(inNode.getData());
+	}
 }
