@@ -2,7 +2,7 @@ package coursera;
 
 public class ArrayLocationVarTest {
 	private double coords[];
-	double[] test;
+	double[] test; 
 	
 	public ArrayLocationVarTest(double[] coords) {
 		this.coords = coords;
