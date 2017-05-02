@@ -4,7 +4,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
 	private Node<T> root;
 
-	public void insertNode(T newData, Node<T> node) {
+	private void insertNode(T newData, Node<T> node) {
 		Node<T> newNode = new Node<T>(newData);
 		if (newNode.compareTo(node) < 0) {
 			if (node.getLeftChild() != null) {
@@ -20,18 +20,34 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 			}
 		}
 	}
+	
+	private T getMaxNode(Node<T> node) {
+		if (node.getRightChild() != null) {
+			return (getMaxNode(node.getRightChild()));
+		}
+		return node.getData();
+	}
 
-	public T getMaxNode() {
+	private T getMinNode(Node<T> node) {
+		if (node.getLeftChild() != null) {
+			return (getMinNode(node.getLeftChild()));
+		}
+		return node.getData();
+	}
+
+	@Override
+	public T getMax() {
 		if (root != null) {
-			return (getMax(root));
+			return (getMaxNode(root));
 		} else {
 			return null;
 		}
 	}
 
-	public T getMinNode() {
+	@Override
+	public T getMin() {
 		if (root != null) {
-			return (getMin(root));
+			return (getMinNode(root));
 		} else {
 			return null;
 		}
@@ -49,28 +65,11 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 	@Override
 	public void delete(T data) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void traversal() {
 		// TODO Auto-generated method stub
-
 	}
 
-	@Override
-	public T getMax(Node<T> node) {
-		if (node.getRightChild() != null) {
-			return (getMax(node.getRightChild()));
-		}
-		return node.getData();
-	}
-
-	@Override
-	public T getMin(Node<T> node) {
-		if (node.getLeftChild() != null) {
-			return (getMin(node.getLeftChild()));
-		}
-		return node.getData();
-	}
 }

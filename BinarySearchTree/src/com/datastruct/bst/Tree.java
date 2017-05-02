@@ -8,8 +8,8 @@ public interface Tree<T extends Comparable<T>> {
 
 	public void traversal();
 
-	public T getMax(Node<T> node);
+	public T getMax();
 
-	public T getMin(Node<T> node);
+	public T getMin();
 
 }
